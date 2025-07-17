@@ -1,6 +1,8 @@
 {
   "name": "ChronosCraft v0.1 (Alpha)",
-  "image": "mcr.microsoft.com/devcontainers/javascript-node:22-bullseye",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 
   "waitFor": "onCreateCommand",
   "postCreateCommand": "cd shared && npm install && cd ../client && npm install && cd ../server && npm install && cd ..",
