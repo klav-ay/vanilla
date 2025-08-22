@@ -1,0 +1,2 @@
+# Ignore runtime logs produced by the server
+logs/

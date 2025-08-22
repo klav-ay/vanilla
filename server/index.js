@@ -259,13 +259,13 @@ if (process.env.DISABLE_RATE_LIMIT === "1") {
   app.use(rateLimit({ windowMs: 15 * 60 * 1000, max: 100 }));
 }
 
-// Ensure logs directory exists
-const logsDir = path.resolve(__dirname, "../server-logs");
+// Ensure logs directory exists (keep logs inside the server package)
+const logsDir = path.resolve(__dirname, "./logs");
 if (!fs.existsSync(logsDir)) {
   try {
-    fs.mkdirSync(logsDir);
+    fs.mkdirSync(logsDir, { recursive: true });
   } catch (e) {
-    console.warn("Failed to create logs directory:", e.message);
+    console.warn("Failed to create server logs directory:", e.message);
   }
 }
 
